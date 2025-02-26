@@ -79,9 +79,9 @@ namespace dCode {
 
 
     //% group="LCD Display"
-    //% blockId=i2c_lcd_scroll block="scroll %text on LCD %direction=scr_direction | speed %speed ms"
+    //% blockId=i2c_lcd_scroll block="scroll %text on LCD speed %speed ms | direction %direction=scr_direction"
     //% speed.min=50 speed.max=500
-    export function scrollTextLCD(text: string, direction: ScrollDirection, speed: number): void {
+    export function scrollTextLCD(text: string, speed: number, direction: ScrollDirection): void {
         let addr = 0x27; // Default I2C address for 16x2 LCD
         let buf = pins.createBuffer(1);
 
@@ -104,6 +104,7 @@ namespace dCode {
         //% block="Right"
         Right = 1
     }
+
 
     
 
