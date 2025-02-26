@@ -2,12 +2,22 @@
 namespace dCode {
 
     //% group="Actuators"
-    //% blockId=servo_motor block="set servo at pin %pin to %angle°"
+    //% blockId=servo_motor block="set servo %servo to %angle°"
     //% angle.min=0 angle.max=180
-    //% pin.defl=AnalogPin.P0
-    export function setServoAngle(pin: AnalogPin, angle: number): void {
+    //% servo.defl=Servo.S1
+    export function setServoAngle(servo: Servo, angle: number): void {
+        let pin = (servo == Servo.S1) ? AnalogPin.P6 : AnalogPin.P7;
         let pulseWidth = (angle * 2000) / 180 + 500; // Convert angle (0-180) to pulse width (500-2500µs)
         pins.servoSetPulse(pin, pulseWidth);
+    }
+
+    //% blockId=servo_enum block="%servo"
+    //% blockHidden=true
+    export enum Servo {
+        //% block="S1"
+        S1 = 0,
+        //% block="S2"
+        S2 = 1
     }
 
 
