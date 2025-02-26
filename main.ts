@@ -9,6 +9,14 @@ namespace dCode {
     }
 
     //% group="Sensors"
+    //% blockId=digital_sensor block="read Digital sensor at pin %pin"
+    //% pin.defl=DigitalPin.P1
+    export function readDigitalSensor(pin: DigitalPin): number {
+        return pins.digitalReadPin(pin);
+    }
+
+
+    //% group="Sensors"
     //% blockId=dht11_sensor block="read DHT11 %dhtData at pin %pin"
     //% pin.defl=DigitalPin.P2
     export function readDHT11(dhtData: DHT11Data, pin: DigitalPin): number {
