@@ -1,4 +1,4 @@
-//% color=#0fbc11 icon="\f544" block="d-Code"
+//% color=#0fbc11 icon="f544" block="d-Code"
 namespace dCode {
     /**
      * Measures distance in centimeters using an HC-SR04 sensor.
