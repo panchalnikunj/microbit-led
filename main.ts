@@ -1,4 +1,4 @@
-//% color=#0fbc11 icon="f544" block="d-Code"
+//% color=#0fbc11 icon="\uf2c9" block="dCode"
 namespace dCode {
     /**
      * Measures distance in centimeters using an HC-SR04 sensor.
@@ -28,5 +28,23 @@ namespace dCode {
     //% irPin.defl=DigitalPin.P2
     export function readIRSensor(irPin: DigitalPin): boolean {
         return pins.digitalReadPin(irPin) == 0;
+    }
+
+    /**
+     * Displays text on an I2C 16x2 LCD display.
+     * @param text The text to display
+     * @param line The line number (0 or 1)
+     */
+    //% blockId=i2c_lcd_display block="display %text on LCD at line %line"
+    //% line.min=0 line.max=1
+    export function displayTextLCD(text: string, line: number): void {
+        let addr = 0x27; // Default I2C address for 16x2 LCD
+        let buf = pins.createBuffer(2);
+        buf[0] = 0x80 | (line == 0 ? 0x00 : 0x40); // Set cursor to line 0 or 1
+        pins.i2cWriteBuffer(addr, buf);
+        for (let i = 0; i < text.length; i++) {
+            buf[0] = text.charCodeAt(i);
+            pins.i2cWriteBuffer(addr, buf);
+        }
     }
 }
