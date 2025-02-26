@@ -97,7 +97,14 @@ namespace dCode {
         }
     }
 
-
+    //% blockId=scr_direction block="%direction"
+    //% blockHidden=true
+    export enum ScrollDirection {
+        //% block="Left"
+        Left = 0,
+        //% block="Right"
+        Right = 1
+    }
     
 
 }
