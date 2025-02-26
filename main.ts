@@ -50,14 +50,14 @@ namespace dCode {
     }
 
     /**
-     * Resets the I2C 16x2 LCD display.
+     * Clears the I2C 16x2 LCD display.
      */
-    //% blockId=i2c_lcd_reset block="reset LCD display"
-    export function resetLCD(): void {
+    //% blockId=i2c_lcd_clear block="clear LCD display"
+    export function clearLCD(): void {
         let addr = 0x27; // Default I2C address for 16x2 LCD
-        let buf = pins.createBuffer(2);
+        let buf = pins.createBuffer(1);
         buf[0] = 0x01; // Clear display command
         pins.i2cWriteBuffer(addr, buf);
-        basic.pause(2); // Wait for LCD to reset
+        basic.pause(2); // Wait for LCD to clear
     }
 }
