@@ -1,7 +1,7 @@
 {
-    "name": "MyExtension",
+    "name": "Ultrasonic",
     "version": "0.0.1",
-    "description": "An example extension",
+    "description": "Extension for HC-SR04 ultrasonic sensor",
     "dependencies": {
         "core": "*",
         "microphone": "*"
@@ -15,6 +15,5 @@
     },
     "supportedTargets": [
         "microbit"
-    ],
-    "preferredEditor": "tsprj"
+    ]
 }
