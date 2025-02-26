@@ -31,17 +31,17 @@ namespace dCode {
     }
 
     /**
-     * Displays text on an I2C 16x2 LCD display at a specified row and column.
+     * Displays text on an I2C 16x2 LCD display at a specified column and row.
      * @param text The text to display
      * @param col The column number (0-15)
      * @param row The row number (0 or 1)
      */
     //% blockId=i2c_lcd_display block="display %text on LCD at column %col row %row"
-    //% row.min=0 row.max=1 col.min=0 col.max=15
-    export function displayTextLCD(text: string, row: number, col: number): void {
+    //% col.min=0 col.max=15 row.min=0 row.max=1
+    export function displayTextLCD(text: string, col: number, row: number): void {
         let addr = 0x27; // Default I2C address for 16x2 LCD
         let buf = pins.createBuffer(2);
-        buf[0] = 0x80 | (row == 0 ? 0x00 : 0x40) | col; // Set cursor to row and column
+        buf[0] = 0x80 | (row == 0 ? 0x00 : 0x40) | col; // Set cursor to column and row
         pins.i2cWriteBuffer(addr, buf);
         for (let i = 0; i < text.length; i++) {
             buf[0] = text.charCodeAt(i);
