@@ -2,17 +2,17 @@
 namespace dCode {
 
     //% group="Sensors"
-    //% blockId=ldr_sensor block="read LDR sensor at pin %pin"
-    //% pin.defl=AnalogPin.P0
-    export function readLDR(pin: AnalogPin): number {
-        return pins.analogReadPin(pin);
-    }
-
-    //% group="Sensors"
     //% blockId=digital_sensor block="read Digital sensor at pin %pin"
     //% pin.defl=DigitalPin.P1
     export function readDigitalSensor(pin: DigitalPin): number {
         return pins.digitalReadPin(pin);
+    }
+
+    //% group="Sensors"
+    //% blockId=analog_sensor block="read Analog sensor at pin %pin"
+    //% pin.defl=AnalogPin.P0
+    export function readAnalogSensor(pin: AnalogPin): number {
+        return pins.analogReadPin(pin);
     }
 
 
@@ -83,18 +83,6 @@ namespace dCode {
         return distance > 400 ? 400 : distance; // Limit to 400 cm (sensor range)
     }
 
-
-
-    //% group="Sensors"
-    /**
-     * Reads the value from an IR sensor.
-     * @param irPin The pin connected to the IR sensor
-     */
-    //% blockId=ir_sensor_read block="read IR sensor at %irPin"
-    //% irPin.defl=DigitalPin.P2
-    export function readIRSensor(irPin: DigitalPin): boolean {
-        return pins.digitalReadPin(irPin) == 0;
-    }
 
     //% group="LCD Display"
     /**
