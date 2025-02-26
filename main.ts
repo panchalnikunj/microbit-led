@@ -106,6 +106,26 @@ namespace dCode {
     }
 
 
+    //% group="LCD Display"
+    //% blockId=i2c_lcd_backlight block="LCD backlight %state=backlight_state"
+    export function setLcdBacklight(state: BacklightState): void {
+        let addr = 0x27; // Default I2C address for 16x2 LCD
+        let backlightCmd = (state == BacklightState.On) ? 0x08 : 0x00; // 0x08 = ON, 0x00 = OFF
+
+        pins.i2cWriteNumber(addr, backlightCmd, NumberFormat.UInt8BE);
+    }
+
+    //% blockId=backlight_state block="%state"
+    //% blockHidden=true
+    export enum BacklightState {
+        //% block="ON"
+        On = 1,
+        //% block="OFF"
+        Off = 0
+    }
+
+
+
     
 
 }
