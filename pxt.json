@@ -16,6 +16,7 @@
     "supportedTargets": [
         "microbit"
     ],
+    "preferredEditor": "tsprj",
     "color": "U+1F916",
     "icon": "🔧"
 }
