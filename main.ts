@@ -79,9 +79,10 @@ namespace dCode {
 
 
     //% group="LCD Display"
-    //% blockId=i2c_lcd_scroll block="scroll %text on LCD %direction=scr_direction | speed %speed ms"
+    //% blockId=i2c_lcd_scroll block="scroll %text on LCD %direction speed %speed ms"
+    //% direction.defl="left"
     //% speed.min=50 speed.max=500
-    export function scrollTextLCD(text: string, direction: ScrollDirection, speed: number): void {
+    export function scrollTextLCD(text: string, direction: string, speed: number): void {
         let addr = 0x27; // Default I2C address for 16x2 LCD
         let buf = pins.createBuffer(1);
 
@@ -90,19 +91,13 @@ namespace dCode {
 
         // Scroll text left or right
         for (let i = 0; i < 16; i++) {
-            buf[0] = (direction == ScrollDirection.Left) ? 0x18 : 0x1C; // LCD shift command
+            buf[0] = (direction == "left") ? 0x18 : 0x1C; // LCD shift command
             pins.i2cWriteBuffer(addr, buf);
             basic.pause(speed);
         }
     }
 
-    //% blockId=scr_direction block="%direction"
-    //% blockHidden=true
-    export enum ScrollDirection {
-        //% block="Left"
-        Left = 0,
-        //% block="Right"
-        Right = 1
-    }
+
+    
 
 }
