@@ -75,4 +75,26 @@ namespace dCode {
         pins.i2cWriteBuffer(addr, buf);
         basic.pause(2); // Wait for LCD to clear
     }
+
+
+
+    //% group="LCD Display"
+    //% blockId=i2c_lcd_scroll block="scroll %text on LCD %direction speed %speed ms"
+    //% direction.defl="left"
+    //% speed.min=50 speed.max=500
+    export function scrollTextLCD(text: string, direction: string, speed: number): void {
+        let addr = 0x27; // Default I2C address for 16x2 LCD
+        let buf = pins.createBuffer(1);
+
+        // Display the initial text at position (0,0)
+        displayTextLCD(text, 0, 0);
+
+        // Scroll text left or right
+        for (let i = 0; i < 16; i++) {
+            buf[0] = (direction == "left") ? 0x18 : 0x1C; // LCD shift command
+            pins.i2cWriteBuffer(addr, buf);
+            basic.pause(speed);
+        }
+    }
+
 }
