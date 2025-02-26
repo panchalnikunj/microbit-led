@@ -16,6 +16,7 @@
     "supportedTargets": [
         "microbit"
     ],
+    "preferredEditor": "tsprj",
     "color": "#0078D7",
     "groups": [
         {

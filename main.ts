@@ -1,7 +1,17 @@
 //% color=#0fbc11 icon="\uf2c9" block="dCode"
 namespace dCode {
 
-  
+    //% group="Actuators"
+    //% blockId=servo_motor block="set servo at pin %pin to %angle°"
+    //% angle.min=0 angle.max=180
+    //% pin.defl=AnalogPin.P0
+    export function setServoAngle(pin: AnalogPin, angle: number): void {
+        let pulseWidth = (angle * 2000) / 180 + 500; // Convert angle (0-180) to pulse width (500-2500µs)
+        pins.servoSetPulse(pin, pulseWidth);
+    }
+
+
+
     //% group="Sensors"
     //% blockId=dht11_sensor block="read DHT11 %dhtData at pin %pin"
     //% pin.defl=DigitalPin.P2
