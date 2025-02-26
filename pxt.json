@@ -1,7 +1,7 @@
 {
     "name": "dCode",
     "version": "1.0.0",
-    "description": "Custom extension for sensors and LCD",
+    "description": "Custom extension for sensors and actuators",
     "dependencies": {
         "core": "*",
         "microphone": "*"
@@ -16,16 +16,6 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "tsprj",
-    "color": "#0078D7",
-    "groups": [
-        {
-            "name": "Sensors",
-            "color": "#E74C3C"
-        },
-        {
-            "name": "LCD Display",
-            "color": "#27AE60"
-        }
-    ]
+    "color": "U+1F916",
+    "icon": "🔧"
 }
