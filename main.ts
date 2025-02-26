@@ -39,13 +39,15 @@ namespace dCode {
      */
     //% blockId=i2c_lcd_display block="display %text on LCD at column %col row %row"
     //% col.min=0 col.max=15 row.min=0 row.max=1
-    export function displayTextLCD(text: string, col: number, row: number): void {
+    export function displayTextLCD(text: any, col: number, row: number): void {
         let addr = 0x27; // Default I2C address for 16x2 LCD
         let buf = pins.createBuffer(2);
         buf[0] = 0x80 | (row == 0 ? 0x00 : 0x40) | col; // Set cursor to column and row
         pins.i2cWriteBuffer(addr, buf);
-        for (let i = 0; i < text.length; i++) {
-            buf[0] = text.charCodeAt(i);
+
+        let strText = text.toString(); // Convert boolean or number to string
+        for (let i = 0; i < strText.length; i++) {
+            buf[0] = strText.charCodeAt(i);
             pins.i2cWriteBuffer(addr, buf);
         }
     }
