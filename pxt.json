@@ -1,17 +1,13 @@
 {
-    "name": "microbit-led",
-    "description": "",
+    "name": "MyExtension",
+    "version": "0.0.1",
+    "description": "An example extension",
     "dependencies": {
         "core": "*",
-        "radio": "*",
         "microphone": "*"
     },
     "files": [
-        "main.ts",
-        "README.md"
-    ],
-    "testFiles": [
-        "test.ts"
+        "main.ts"
     ],
     "targetVersions": {
         "target": "7.0.57",
