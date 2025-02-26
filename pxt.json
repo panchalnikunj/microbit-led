@@ -1,7 +1,7 @@
 {
-    "name": "Ultrasonic",
-    "version": "0.0.1",
-    "description": "Extension for HC-SR04 ultrasonic sensor",
+    "name": "dCode",
+    "version": "1.0.0",
+    "description": "Custom extension for sensors and LCD",
     "dependencies": {
         "core": "*",
         "microphone": "*"
@@ -16,5 +16,15 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "tsprj"
+    "color": "#0078D7",
+    "groups": [
+        {
+            "name": "Sensors",
+            "color": "#E74C3C"
+        },
+        {
+            "name": "LCD Display",
+            "color": "#27AE60"
+        }
+    ]
 }
