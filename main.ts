@@ -33,8 +33,8 @@ namespace dCode {
     /**
      * Displays text on an I2C 16x2 LCD display at a specified row and column.
      * @param text The text to display
-     * @param row The row number (0 or 1)
      * @param col The column number (0-15)
+     * @param row The row number (0 or 1)
      */
     //% blockId=i2c_lcd_display block="display %text on LCD at row %row column %col"
     //% row.min=0 row.max=1 col.min=0 col.max=15
