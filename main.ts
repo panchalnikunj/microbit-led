@@ -105,8 +105,4 @@ namespace dCode {
         Right = 1
     }
 
-
-
-
-
 }
