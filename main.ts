@@ -30,6 +30,7 @@ namespace dCode {
         return pins.digitalReadPin(irPin) == 0;
     }
 
+    //% group="LCD Display"
     /**
      * Displays text on an I2C 16x2 LCD display at a specified column and row.
      * @param text The text to display
@@ -49,6 +50,7 @@ namespace dCode {
         }
     }
 
+    //% group="LCD Display"
     /**
      * Clears the I2C 16x2 LCD display.
      */
