@@ -8,6 +8,50 @@ namespace dCode {
         return pins.analogReadPin(pin);
     }
 
+    //% group="Sensors"
+    //% blockId=dht11_sensor block="read DHT11 %dhtData at pin %pin"
+    //% pin.defl=DigitalPin.P2
+    export function readDHT11(dhtData: DHT11Data, pin: DigitalPin): number {
+        let buffer: number[] = [];
+        let startTime: number;
+        let signal: number;
+
+        // Start signal
+        pins.digitalWritePin(pin, 0);
+        basic.pause(18);
+        pins.digitalWritePin(pin, 1);
+        control.waitMicros(40);
+        pins.setPull(pin, PinPullMode.PullUp);
+
+        // Wait for response
+        while (pins.digitalReadPin(pin) == 1);
+        while (pins.digitalReadPin(pin) == 0);
+        while (pins.digitalReadPin(pin) == 1);
+
+        // Read 40-bit data (5 bytes)
+        for (let i = 0; i < 40; i++) {
+            while (pins.digitalReadPin(pin) == 0);
+            startTime = control.micros();
+            while (pins.digitalReadPin(pin) == 1);
+            signal = control.micros() - startTime;
+            buffer.push(signal > 40 ? 1 : 0);
+        }
+
+        // Convert data
+        let humidity = (buffer.slice(0, 8).reduce((a, b) => (a << 1) | b, 0));
+        let temperature = (buffer.slice(16, 24).reduce((a, b) => (a << 1) | b, 0));
+
+        return dhtData == DHT11Data.Temperature ? temperature : humidity;
+    }
+
+    //% blockId=dht11_data block="%dhtData"
+    //% blockHidden=true
+    export enum DHT11Data {
+        //% block="Temperature (°C)"
+        Temperature = 0,
+        //% block="Humidity (%)"
+        Humidity = 1
+    }
 
 
     //% group="Sensors"
