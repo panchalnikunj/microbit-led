@@ -1,4 +1,4 @@
-//% color=#0fbc11 icon="\uf233" block="dCode"
+//% color=#0fbc11 icon="\uf229" block="dCode"
 namespace dCode {
 
     //% group="Actuators"
