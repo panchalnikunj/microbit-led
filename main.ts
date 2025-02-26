@@ -1,5 +1,5 @@
-//% color=#0fbc11 icon="\uf2c9" block="Ultrasonic Sensor"
-namespace Ultrasonic {
+//% color=#0fbc11 icon="\uf2c9" block="d-Code"
+namespace dCode {
     /**
      * Measures distance in centimeters using an HC-SR04 sensor.
      * @param trigPin The trigger pin
@@ -18,5 +18,15 @@ namespace Ultrasonic {
         let distance = duration / 58;
 
         return distance > 400 ? 400 : distance; // Limit to 400 cm (sensor range)
+    }
+
+    /**
+     * Reads the value from an IR sensor.
+     * @param irPin The pin connected to the IR sensor
+     */
+    //% blockId=ir_sensor_read block="read IR sensor at %irPin"
+    //% irPin.defl=DigitalPin.P2
+    export function readIRSensor(irPin: DigitalPin): boolean {
+        return pins.digitalReadPin(irPin) == 0;
     }
 }
