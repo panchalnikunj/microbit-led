@@ -37,7 +37,7 @@ namespace dCode {
      * @param col The column number (0-15)
      * @param row The row number (0 or 1)
      */
-    //% blockId=i2c_lcd_display block="display %text on LCD at column %col row %row"
+    //% blockId=i2c_lcd_display block="display %text=text on LCD at column %col row %row"
     //% col.min=0 col.max=15 row.min=0 row.max=1
     export function displayTextLCD(text: string | number | boolean, col: number, row: number): void {
         let addr = 0x27; // Default I2C address for 16x2 LCD
@@ -59,6 +59,7 @@ namespace dCode {
             pins.i2cWriteBuffer(addr, buf);
         }
     }
+
 
 
 
