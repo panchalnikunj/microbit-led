@@ -1,5 +1,16 @@
 //% color=#0fbc11 icon="\uf2c9" block="dCode"
 namespace dCode {
+
+    //% group="Sensors"
+    //% blockId=ldr_sensor block="read LDR sensor at pin %pin"
+    //% pin.defl=AnalogPin.P0
+    export function readLDR(pin: AnalogPin): number {
+        return pins.analogReadPin(pin);
+    }
+
+
+
+    //% group="Sensors"
     /**
      * Measures distance in centimeters using an HC-SR04 sensor.
      * @param trigPin The trigger pin
@@ -20,6 +31,9 @@ namespace dCode {
         return distance > 400 ? 400 : distance; // Limit to 400 cm (sensor range)
     }
 
+
+
+    //% group="Sensors"
     /**
      * Reads the value from an IR sensor.
      * @param irPin The pin connected to the IR sensor
