@@ -79,8 +79,7 @@ namespace dCode {
 
 
     //% group="LCD Display"
-    //% blockId=i2c_lcd_scroll block="scroll %text on LCD %direction | speed %speed ms"
-    //% direction.shadow="dropdown" direction.defl=ScrollDirection.Left
+    //% blockId=i2c_lcd_scroll block="scroll %text on LCD %direction=scr_direction | speed %speed ms"
     //% speed.min=50 speed.max=500
     export function scrollTextLCD(text: string, direction: ScrollDirection, speed: number): void {
         let addr = 0x27; // Default I2C address for 16x2 LCD
@@ -97,7 +96,7 @@ namespace dCode {
         }
     }
 
-    //% blockId=i2c_lcd_scroll_direction block="%direction"
+    //% blockId=scr_direction block="%direction"
     //% blockHidden=true
     export enum ScrollDirection {
         //% block="Left"
@@ -105,6 +104,7 @@ namespace dCode {
         //% block="Right"
         Right = 1
     }
+
 
 
 
