@@ -1,21 +1,7 @@
 //% color=#0fbc11 icon="\uf2c9" block="dCode"
 namespace dCode {
 
-    //% group="Sensors"
-    //% blockId=digital_sensor block="read Digital sensor at pin %pin"
-    //% pin.defl=DigitalPin.P1
-    export function readDigitalSensor(pin: DigitalPin): number {
-        return pins.digitalReadPin(pin);
-    }
-
-    //% group="Sensors"
-    //% blockId=analog_sensor block="read Analog sensor at pin %pin"
-    //% pin.defl=AnalogPin.P0
-    export function readAnalogSensor(pin: AnalogPin): number {
-        return pins.analogReadPin(pin);
-    }
-
-
+  
     //% group="Sensors"
     //% blockId=dht11_sensor block="read DHT11 %dhtData at pin %pin"
     //% pin.defl=DigitalPin.P2
@@ -82,6 +68,22 @@ namespace dCode {
 
         return distance > 400 ? 400 : distance; // Limit to 400 cm (sensor range)
     }
+
+    //% group="Sensors"
+    //% blockId=analog_sensor block="read Analog sensor at pin %pin"
+    //% pin.defl=AnalogPin.P0
+    export function readAnalogSensor(pin: AnalogPin): number {
+        return pins.analogReadPin(pin);
+    }
+
+
+    //% group="Sensors"
+    //% blockId=digital_sensor block="read Digital sensor at pin %pin"
+    //% pin.defl=DigitalPin.P1
+    export function readDigitalSensor(pin: DigitalPin): number {
+        return pins.digitalReadPin(pin);
+    }
+
 
 
     //% group="LCD Display"
